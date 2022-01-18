@@ -23,5 +23,5 @@ def removeDuplicates(arr):
 
     return uniqueArr
 
-arr = [1, 2, 2, 1, 5, 6, 7, 10, 5]
+arr = [1, 2, 2, 1, 5, 6, 7, 10, 2]
 print(removeDuplicates(arr))

@@ -23,4 +23,4 @@ def makePattern(pattern_size):
 
 
 
-makePattern(7)
+makePattern(10)
