@@ -21,14 +21,32 @@ def arraySort(arr):
 
     return arr
 
+# def sortResultArray(arr):
+#     for i in range(len(arr)):
+#         for j in range(len(arr[0])):
+#             if arr[j][0] > arr[i][0]:
+
 
 def findTriplets(arr, target):
     # sort the array
     arr = arraySort(arr)
-    # print(arr)
-    
 
+
+    resList = []
+    print(arr)
+    for i in range(len(arr)):
+        if 3*arr[i] < target: #only for sorted array in ascending order
+        # if True:
+            for j in range(len(arr)):
+                    k = 0
+                    while arr[i] + arr[j] + arr[k] <= target and i!=j and j != k and i != k:
+                        if arr[i] + arr[j] + arr[k] == target:
+                            tempSortArray = arraySort([arr[i], arr[j], arr[k]])
+                            resList.append(tempSortArray)
+                        k+=1
+    # sortResultArray(resList)
+    return resList
 arr = [1, 3, 6, 7, 2, 9, 5]
 target = 10
-findTriplets(arr, target)
+print(findTriplets(arr, target))
 
