@@ -35,13 +35,13 @@ Input: board =
 Output: false
 
 '''
-def resetNumRepeatDict(dict):
+def resetNumRepeatCounterDict(dict):
     for k, v in dict.items():
         dict[k] = 0
     return dict
 
 def isValidSuduko(Suduko):
-    numRepeatDict = {
+    numRepeatCounterDict = {
                 "0": 0,
                 "1": 0,
                 "2": 0,
@@ -57,17 +57,17 @@ def isValidSuduko(Suduko):
     # Each row must contain the digits 1-9 without repetition.
     i , j = 0, 0
     while j < len(Suduko[0]):
-        if numRepeatDict[Suduko[i][j]] > 1 and Suduko[i][j] != ".":
-            numRepeatDict = resetNumRepeatDict(numRepeatDict)
+        if numRepeatCounterDict[Suduko[i][j]] > 1 and Suduko[i][j] != ".":
+            numRepeatCounterDict = resetNumRepeatCounterDict(numRepeatCounterDict)
             i = 0
             return False
 
         else:
-            numRepeatDict[Suduko[i][j]] += 1
+            numRepeatCounterDict[Suduko[i][j]] += 1
             i += 1
 
         if i == len(Suduko[0]):
-            numRepeatDict = resetNumRepeatDict(numRepeatDict)
+            numRepeatCounterDict = resetNumRepeatCounterDict(numRepeatCounterDict)
             i = 0
 
         j += 1
@@ -75,18 +75,18 @@ def isValidSuduko(Suduko):
     # Each column must contain the digits 1-9 without repetition.
     i, j = 0, 0
     while i < len(Suduko[0]):
-        if numRepeatDict[Suduko[i][j]] > 1 and Suduko[i][j] != ".":
-            # numRepeatDict = resetNumRepeatDict(numRepeatDict)
+        if numRepeatCounterDict[Suduko[i][j]] > 1 and Suduko[i][j] != ".":
+            # numRepeatCounterDict = resetNumRepeatCounterDict(numRepeatCounterDict)
             print("i:", i, ", j:", j, "Suduko[i][j]: ", Suduko[i][j] )
             j = 0
             return False
 
         else:
-            numRepeatDict[Suduko[i][j]] += 1
+            numRepeatCounterDict[Suduko[i][j]] += 1
             j += 1
 
         if j == len(Suduko):
-            numRepeatDict = resetNumRepeatDict(numRepeatDict)
+            numRepeatCounterDict = resetNumRepeatCounterDict(numRepeatCounterDict)
             j = 0
         i += 1
 
@@ -94,11 +94,11 @@ def isValidSuduko(Suduko):
     # the digits 1-9 without repetition.
     # for i in range(0, len(Suduko[0]), 3):
     #     for j in range(len(Suduko[0])):
-    #         if numRepeatDict[Suduko[i][j]] > 1 and Suduko[i][j] != ".":
+    #         if numRepeatCounterDict[Suduko[i][j]] > 1 and Suduko[i][j] != ".":
     #             return False
     #
     #         else:
-    #             numRepeatDict[Suduko[i][j]] += 1
+    #             numRepeatCounterDict[Suduko[i][j]] += 1
     #
     #         print(1, j)
     counterItem = 0
@@ -116,15 +116,15 @@ def isValidSuduko(Suduko):
         # addToI = resetAddToI
         for i in range(sizeSubBlock):
             for j in range(sizeSubBlock):
-                numRepeatDict[Suduko[i + addToI][j + addToJ]] += 1
+                numRepeatCounterDict[Suduko[i + addToI][j + addToJ]] += 1
                 print("current item: ", "Suduko[",i+addToI,"][",j+addToJ,"]", Suduko[i+addToI][j+addToJ])
-                if numRepeatDict[Suduko[i + addToI][j + addToJ]] > 1 and Suduko[i + addToI][j + addToJ] != ".":
+                if numRepeatCounterDict[Suduko[i + addToI][j + addToJ]] > 1 and Suduko[i + addToI][j + addToJ] != ".":
                     return False
         # addToI += 3
 
-        print(numRepeatDict)
-        numRepeatDict = resetNumRepeatDict(numRepeatDict)
-        print(numRepeatDict)
+        print(numRepeatCounterDict)
+        numRepeatCounterDict = resetNumRepeatCounterDict(numRepeatCounterDict)
+        print(numRepeatCounterDict)
         k += 1
     return True
 #
