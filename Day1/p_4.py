@@ -24,11 +24,11 @@ def lcm(n1, n2):
 
     return lcm
 
-num_lst = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-res = lcm(num_lst[0], num_lst[1])
+numList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+res = lcm(numList[0], numList[1])
 
-for i in range(2, len(num_lst)):
-    res = lcm(res, num_lst[i])
+for i in range(2, len(numList)):
+    res = lcm(res, numList[i])
 
 print("result:", res)
 

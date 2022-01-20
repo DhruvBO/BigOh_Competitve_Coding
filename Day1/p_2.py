@@ -7,7 +7,7 @@ to swap first and last digits of any number
 234 -> 432 , 
 '''
 
-def swap_fld(num):
+def swapForstAndLastDigit(num):
     a = num
     fd = num%10
     ld = 0
@@ -27,4 +27,4 @@ def swap_fld(num):
 
     print(res)
 
-swap_fld(10009)
+swapForstAndLastDigit(10009)

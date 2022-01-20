@@ -13,8 +13,8 @@ def isNameValid(name: str):
         return True
 
     posFs = 0
-    name_char_lst = []
-    vowel_dict = {'a': 0,
+    nameCharList = []
+    vowelCounterDict = {'a': 0,
                   'A': 0,
                   'e': 0,
                   'E': 0,
@@ -26,14 +26,14 @@ def isNameValid(name: str):
                   'U': 0}
     for i in range(len(name)):
         if name[i] == 'a' or name[i] == 'A' or name[i] == 'e' or name[i] == 'E' or name[i] == 'i' or name[i] == 'I' or name[i] == 'o' or name[i] == 'O' or name[i] == 'u' or name[i] == 'U':
-            vowel_dict[name[i]] += 1
-            if vowel_dict[name[i]] > 1:
+            vowelCounterDict[name[i]] += 1
+            if vowelCounterDict[name[i]] > 1:
                 return False
 
 
         if i > 1:
-            name_char_lst.append(name[i - 1])
-            if 'S' in name_char_lst and name[i] == 'S':
+            nameCharList.append(name[i - 1])
+            if 'S' in nameCharList and name[i] == 'S':
                 for j in range(0, i):
                     if name[j] == 'S':
                         posFs = j

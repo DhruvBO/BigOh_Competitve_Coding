@@ -4,9 +4,9 @@ Find the largest number less than N whose each digit is prime number
 '''
 # check for optimisation
 
-def largest_prime(N):
+def largestPrime(N):
     for i in range(N-1, 1, -1):
-        curr_prime = True
+        currPrime = True
         a = i
 
         while a != 0:
@@ -15,11 +15,11 @@ def largest_prime(N):
             a = a//10
 
             if digit != 2 and digit != 5 and digit != 7:
-                curr_prime = False
+                currPrime = False
                 break
 
-        if curr_prime == True:
+        if currPrime == True:
             return i
 
-print(largest_prime(1000))
+print(largestPrime(1000))
 

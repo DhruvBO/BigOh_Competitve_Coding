@@ -149,7 +149,7 @@ board2 =[["8","3",".",".","7",".",".",".","."]
         ,[".",".",".",".","8",".",".","7","9"]]
 
 
-print(isValidSuduko(board2))
+print(isValidSuduko(board1))
 
 
 
