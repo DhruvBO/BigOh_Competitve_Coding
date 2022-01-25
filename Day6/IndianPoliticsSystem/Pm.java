@@ -2,15 +2,11 @@ package IndianPoliticsSystem;
 
 import java.util.Scanner;
 
-class Pm extends Mp {
-	private int spendLimit = 10000000; // 1 crore
-	public Pm(String name, String constituency, String designation) {
-		super(name, constituency, designation);
+class Pm extends Mp { // 1 crore
+	public Pm(String name, String constituency, String designation, int spending) {
+		super(name, constituency, designation, spending);
 	}		
 	
-	public int getSpendLimit() {
-		return spendLimit;
-	}
 	
 	public boolean getPermissionToArrestMinister() {
 		Scanner sc = new Scanner(System.in);

@@ -1,33 +1,29 @@
 package IndianPoliticsSystem;
 
 class Mp extends Person{
-	private int spendLimit = 100000; // 1 Lakh
+	//Constant.MP_SPEND_LIMIT = 100000; // 1 Lakh
 //	String name;
-	String constituency;
-	private int speedLimit = 90;
-	int speed;
-	public Mp(String name, String constituency, String designation) {
+	private String constituency;
+	private int actualSpending;
+	public Mp(String name, String constituency, String designation, int spending) {
 		super(name, designation);
 //		this.name = name;
 		this.constituency = constituency;
+		this.actualSpending = spending;
 	}
 	
 	public int getSpendLimit() {
-		return spendLimit;
+		return Constants.MP_SPEND_LIMIT;
 	}
 	public String getConstituency() {
 		return this.constituency;
 	}
 	
-	
-	public boolean exceedsSpendingLimit(int speed) {
-		if(speed > this.speedLimit) {
+	public boolean isSpendingLimitExceeded() {
+		if (this.actualSpending > Constants.MP_SPEND_LIMIT) {
 			return true;
-		} else {
-			return false;
 		}
-		
-		// TODO apply vehicle and driver methods	
+		return false;
 	}
 	
 	public void getCarDetails(Car car) {
