@@ -1,5 +1,5 @@
 package atmClasses;
 
 public interface AtmWithdraw {
-	public String withdraw(int ammount);
+	public String withdraw(int ammount, Account account);
 }

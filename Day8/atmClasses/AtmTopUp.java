@@ -3,6 +3,6 @@ package atmClasses;
 import java.util.HashMap;
 
 public interface AtmTopUp {
-	public void topUp(int AmmountToAdd, HashMap<Integer, Integer> availableBillsCount);
+	public void topUp(HashMap<Integer, Integer> availableBillsCount, AtmManager atmManger);
 	
 }

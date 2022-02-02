@@ -5,42 +5,57 @@ import java.util.Set;
 
 
 // Cash updated by bank 
-public class AtmManager implements AtmTopUp{
-	private int balance;
-	private HashMap<Integer, Integer> availableBillsCount;
-	private Set<Integer> billsAsKey;
+public class AtmManager {
 	
-	public AtmManager() {
-		this.availableBillsCount = new HashMap<Integer, Integer>();
-	}
-	@Override
-	public void topUp(int balance, HashMap<Integer, Integer> availableBillsCount) {
-		this.balance += balance;
-		billsAsKey = availableBillsCount.keySet();
-		if (this.availableBillsCount.size() > 0) {
-			for (int billKey : billsAsKey) {
-				this.availableBillsCount.put(billKey, availableBillsCount.get(billKey) + this.availableBillsCount.get(billKey));
-			}	
-		} else {
-			for (int billKey : billsAsKey) {
-				this.availableBillsCount.put(billKey, availableBillsCount.get(billKey));
-			}	
-		}
+	private String managerName;
+	private int managerId;
+	private String managerBank;
+	private String managerBranchId;
+	
+
+//	private ATM atm;
+	
+	public AtmManager(String managerName, int managerId, String managerBank, String managerBranchId) {
+//		this.atm = new ATM();
+		this.managerName = managerName;
+		this.managerId = managerId;
+		this.managerBank = managerBank;
+		this.managerBranchId = managerBranchId;
 	}
 	
-	
-	
-	
-	public void setBalance(int balance) {
-		this.balance = balance;
-	}
-	public int getBalance() {
-		return balance;
+	public void addBalance(HashMap<Integer, Integer> toAddBillsCount, ATM atm) {
+		atm.topUp(toAddBillsCount, this);			
 	}
 	
-	public HashMap<Integer, Integer> getAvailableBillsCount() {
-		return availableBillsCount;
+	public int getBalance(ATM atm) {
+		return atm.getBalance();
 	}
+
+	public String getManagerName() {
+		return managerName;
+	}
+
+	public int getManagerId() {
+		return managerId;
+	}
+
+	public String getManagerBank() {
+		return managerBank;
+	}
+
+	public String getManagerBranchId() {
+		return managerBranchId;
+	}
+
+//	public ATM getAtm() {
+//		return atm;
+//	}
+	
+	public HashMap<Integer, Integer> getAvailableBillsCount(ATM atm) {
+		return atm.getAvailableBillsCount();
+	}
+	
+	
 	
 
 
